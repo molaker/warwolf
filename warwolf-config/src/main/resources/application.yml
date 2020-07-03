@@ -1,0 +1,26 @@
+server:
+  port: 8002
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.99.234:8761/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/molaker/warwolf.git
+          search-paths: '{application}'
+          username: molaker
+          password: srr198922
+          basedir: /Users/git/temp
+    bus:
+      trace:
+        enabled: true
